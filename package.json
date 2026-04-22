@@ -1,0 +1,24 @@
+{
+  "name": "recuperacionnode-gestionclinica",
+  "version": "1.0.0",
+  "description": "Aplicación completa para la gestión integral de una clínica médica, desarrollada con Node.js + Express en el backend, Vite Vanilla en el frontend, MySQL/PostgreSQL como base de datos relacional y MongoDB para historiales clínicos. Incluye autenticación con tokens, sistema de roles, WebSockets y consultas GraphQL.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noeBR97/RecuperacionNode-GestionClinica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noeBR97/RecuperacionNode-GestionClinica/issues"
+  },
+  "homepage": "https://github.com/noeBR97/RecuperacionNode-GestionClinica#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
