@@ -1,9 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { sequelize } from '../config/db.js'
+import { sequelize } from './config/db.js'
 import mongoose from "mongoose";
 import { conectarMongo } from './config/mongo.js';
+import Usuario from './models/Usuario.js';
+import authRoutes from './routes/authRoutes.js'
 
 dotenv.config()
 mongoose.set('strictQuery', false);
@@ -23,13 +25,13 @@ class Server {
 
         this.middlewares();
 
-        this.conectarMongoose();
+        this.conectarDbs()
 
         this.routes();
         
     }
 
-    conectarDbs() {
+    async conectarDbs() {
         //Conexión con Mongo 
         try {
             await conectarMongo()
@@ -41,7 +43,8 @@ class Server {
         //Conexión Postgres
         try {
             await sequelize.authenticate()
-            console.log('🔵 Postgres: Conexión exitosa')
+            await sequelize.sync({alter: true})
+            console.log('🔵 Postgres: Conexión exitosa. Tablas sincronizadas correctamente.')
         } catch (error) {
             console.error('❌ Error en Postgres:', error)
         }
@@ -53,7 +56,7 @@ class Server {
     }
 
     routes(){
-        
+        this.app.use('/api/auth', authRoutes)
     }
 
     listen() {
