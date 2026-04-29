@@ -15,7 +15,14 @@ Paciente.init(
             unique: true,
             allowNull: false,
             validate: {
-                notEmpty: { msg: "El DNI es obligatorio" }
+                notEmpty: { msg: "El DNI es obligatorio" },
+                async esUnico(value) {
+                    const existe = await Paciente.findOne({where: {dni: value}})
+
+                    if (existe) {
+                        throw new Error('Ya existe un paciente con este DNI.')
+                    }
+                }
             }
         },
         nombre: {
