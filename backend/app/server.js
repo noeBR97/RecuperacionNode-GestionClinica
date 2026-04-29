@@ -7,6 +7,8 @@ import { conectarMongo } from './config/mongo.js';
 import Usuario from './models/Usuario.js';
 import authRoutes from './routes/authRoutes.js'
 import usuarioRoutes from './routes/usuarioRoutes.js'
+import pacienteRoutes from './routes/pacienteRoutes.js'
+import citaRoutes from './routes/citaRoutes.js'
 
 dotenv.config()
 mongoose.set('strictQuery', false);
@@ -22,7 +24,8 @@ class Server {
             auth: '/api/auth',
             usuarios: '/api/usuarios',
             citas: '/api/citas',
-            historial: '/api/historial'
+            historial: '/api/historial',
+            pacientes: '/api/pacientes'
         }
 
         this.middlewares();
@@ -60,6 +63,8 @@ class Server {
     routes(){
         this.app.use(this.paths.auth, authRoutes)
         this.app.use(this.paths.usuarios, usuarioRoutes)
+        this.app.use(this.paths.pacientes, pacienteRoutes)
+        this.app.use(this.paths.citas, citaRoutes)
     }
 
     listen() {
