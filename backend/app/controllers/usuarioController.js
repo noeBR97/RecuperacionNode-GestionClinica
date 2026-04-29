@@ -14,7 +14,7 @@ export const getUsuarios = async (req, res) => {
 
 export const buscarUsuario = async (req, res) => {
     const {id} = req.params
-    
+
     try {
         const usuario = await Usuario.findByPk(id, {
             attributes: { exclude: ['clave'] }
@@ -32,7 +32,7 @@ export const buscarUsuario = async (req, res) => {
 
 export const actualizarUsuario = async(req, res) => {
     const {id} = req.params
-    const {email, ...datos} = req.body //asi evitamos que pueda cambiar el email
+    const {email, ...datos} = req.body //aunque cambiemos el email en el body, se va a quedar igual para no poder cambiarlo
 
     try {
         const usuario = await Usuario.findByPk(id)
