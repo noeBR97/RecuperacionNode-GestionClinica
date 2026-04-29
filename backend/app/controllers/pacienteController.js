@@ -2,11 +2,11 @@ import Paciente from '../models/Paciente.js'
 
 export const getPacientes = async (req, res) => {
     try {
-        const pacientes = await Usuario.findAll()
+        const pacientes = await Paciente.findAll()
 
         res.json(pacientes)
     } catch (error){
-        res.status(500).son({msg: 'Error al obtener pacientes'})
+        res.status(500).json({msg: 'Error al obtener pacientes'})
     }
 }
 

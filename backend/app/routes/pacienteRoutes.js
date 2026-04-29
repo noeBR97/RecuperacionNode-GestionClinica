@@ -6,11 +6,12 @@ import { esAdmin } from '../middlewares/validarRol.js'
 const router = Router()
 
 router.use(validarJWT)
+router.use(esAdmin)
 
-router.get('/', esAdmin, getPacientes)
-router.get('/:id', esAdmin, buscarPaciente)
-router.post('/', esAdmin, crearPaciente)
-router.put('/:id', esAdmin, actualizarPaciente)
-router.delete('/:id', esAdmin, eliminarPaciente)
+router.get('/', getPacientes)
+router.get('/:id', buscarPaciente)
+router.post('/', crearPaciente)
+router.put('/:id', actualizarPaciente)
+router.delete('/:id', eliminarPaciente)
 
 export default router
