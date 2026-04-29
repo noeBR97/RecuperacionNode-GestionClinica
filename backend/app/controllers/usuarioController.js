@@ -13,6 +13,8 @@ export const getUsuarios = async (req, res) => {
 }
 
 export const buscarUsuario = async (req, res) => {
+    const {id} = req.params
+    
     try {
         const usuario = await Usuario.findByPk(id, {
             attributes: { exclude: ['clave'] }
