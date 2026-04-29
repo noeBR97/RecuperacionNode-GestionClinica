@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import { conectarMongo } from './config/mongo.js';
 import Usuario from './models/Usuario.js';
 import authRoutes from './routes/authRoutes.js'
+import usuarioRoutes from './routes/usuarioRoutes.js'
 
 dotenv.config()
 mongoose.set('strictQuery', false);
@@ -18,6 +19,7 @@ class Server {
         this.port = process.env.PORT || 3000
 
         this.paths = {
+            auth: '/api/auth',
             usuarios: '/api/usuarios',
             citas: '/api/citas',
             historial: '/api/historial'
@@ -56,7 +58,8 @@ class Server {
     }
 
     routes(){
-        this.app.use('/api/auth', authRoutes)
+        this.app.use(this.paths.auth, authRoutes)
+        this.app.use(this.paths.usuarios, usuarioRoutes)
     }
 
     listen() {
