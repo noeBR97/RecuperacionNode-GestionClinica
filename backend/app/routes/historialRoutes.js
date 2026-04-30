@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getHistoriales, crearEntrada, buscarHistorial, eliminarEntrada, buscarEntrada, eliminarHistorialPaciente, eliminarTodosLosHistoriales } from '../controllers/historialController.js'
+import { getHistoriales, crearEntrada, buscarHistorial, eliminarEntrada, buscarEntrada, eliminarHistorialPaciente, eliminarTodosLosHistoriales, actualizarEntrada } from '../controllers/historialController.js'
 import { validarJWT } from '../middlewares/validarJWT.js';
 import { esAdmin } from '../middlewares/validarRol.js';
 
@@ -12,6 +12,7 @@ router.post('/', crearEntrada);
 router.get('/', getHistoriales);
 router.get('/paciente/:pacienteID', buscarHistorial);
 router.get('/entrada/:id', buscarEntrada);
+router.put('/entrada/:id', actualizarEntrada)
 router.delete('/entrada/:id', eliminarEntrada);
 router.delete('/paciente/:pacienteID', eliminarHistorialPaciente);
 

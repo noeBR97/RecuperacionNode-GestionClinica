@@ -60,6 +60,22 @@ export const crearEntrada = async (req, res) => {
     }
 }
 
+export const actualizarEntrada = async (req, res) => {
+    const {id} = req.params
+
+    try {
+        const entradaActualizada = await Historial.findByIdAndUpdate(id, req.body)
+
+    if(!entradaActualizada) {
+        return res.status(404).json({msg: 'Entrada no encontrada'})
+    }
+
+    res.json({msg: 'Entrada actualizada correctamente', entradaActualizada})
+    } catch(error) {
+        res.status(500).json({msg: 'Error al actualizar la entrada'})
+    }
+}
+
 export const eliminarEntrada = async (req, res) => {
     const {id} = req.params
 
