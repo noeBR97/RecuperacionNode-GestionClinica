@@ -10,6 +10,7 @@ import usuarioRoutes from './routes/usuarioRoutes.js'
 import pacienteRoutes from './routes/pacienteRoutes.js'
 import citaRoutes from './routes/citaRoutes.js'
 import historialRoutes from './routes/historialRoutes.js'
+import adminRoutes from './routes/adminRoutes.js'
 
 dotenv.config()
 mongoose.set('strictQuery', false);
@@ -26,7 +27,8 @@ class Server {
             usuarios: '/api/usuarios',
             citas: '/api/citas',
             historial: '/api/historial',
-            pacientes: '/api/pacientes'
+            pacientes: '/api/pacientes',
+            admin: '/api/admin'
         }
 
         this.middlewares();
@@ -67,6 +69,7 @@ class Server {
         this.app.use(this.paths.pacientes, pacienteRoutes)
         this.app.use(this.paths.citas, citaRoutes)
         this.app.use(this.paths.historial, historialRoutes)
+        this.app.use(this.paths.admin, adminRoutes)
     }
 
     listen() {
