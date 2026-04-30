@@ -43,7 +43,7 @@ export const getCitas = async (req, res) => {
 
         res.json(citas)
     } catch (error){
-        res.status(500).son({msg: 'Error al obtener citas'})
+        res.status(500).json({msg: 'Error al obtener citas'})
     }
 }
 
@@ -51,7 +51,7 @@ export const buscarCita = async (req, res) => {
     const {id} = req.params
 
     try {
-        const cita = await Paciente.findByPk(id, {
+        const cita = await Cita.findByPk(id, {
             include: [
                 {model: Paciente, as: 'paciente', attributes: ['nombre', 'apellido1', 'dni']}, //filtramos lo campos que queremos
                 {model: Usuario, as: 'medico', attributes: ['nombre', 'apellido1']}
@@ -72,7 +72,7 @@ export const actualizarCita = async (req, res) => {
     const {id} = req.params
 
     try {
-        const cita = await Paciente.findByPk(id)
+        const cita = await Cita.findByPk(id)
 
         if(!cita) {
             return res.status(404).json({msg: 'Cita no encontrada'})
@@ -89,7 +89,7 @@ export const eliminarCita = async (req, res) => {
     const {id} = req.params
 
     try {
-        const cita = await Paciente.findByPk(id)
+        const cita = await Cita.findByPk(id)
 
         if(!cita) {
             return res.status(404).json({msg: 'Cita no encontrada'})

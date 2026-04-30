@@ -19,7 +19,7 @@ Cita.init(
                 notEmpty: {msg: 'La fecha es obligatoria'},
                 isDate: {msg: 'Debe ser una fecha válida'},
                 isAfter: {
-                    args: new Date().toISOString,
+                    args: new Date().toISOString(),
                     msg: 'La cita no puede ser en pasado'
                 }
             }
