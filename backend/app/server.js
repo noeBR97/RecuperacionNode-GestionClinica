@@ -9,6 +9,7 @@ import authRoutes from './routes/authRoutes.js'
 import usuarioRoutes from './routes/usuarioRoutes.js'
 import pacienteRoutes from './routes/pacienteRoutes.js'
 import citaRoutes from './routes/citaRoutes.js'
+import historialRoutes from './routes/historialRoutes.js'
 
 dotenv.config()
 mongoose.set('strictQuery', false);
@@ -65,6 +66,7 @@ class Server {
         this.app.use(this.paths.usuarios, usuarioRoutes)
         this.app.use(this.paths.pacientes, pacienteRoutes)
         this.app.use(this.paths.citas, citaRoutes)
+        this.app.use(this.paths.historial, historialRoutes)
     }
 
     listen() {
