@@ -20,6 +20,5 @@ router.get('/:id', buscarPaciente)
 router.post('/', crearPaciente)
 router.put('/:id', actualizarPaciente)
 router.delete('/:id', eliminarPaciente)
-router.post('/generar-aleatorios', generarPacientesAleatorios)
 
 export default router
