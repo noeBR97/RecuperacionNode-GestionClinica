@@ -33,7 +33,7 @@ Cita.init(
             }
         },
         estado: {
-            type: DataTypes.ENUM('pendiente', 'en curso', 'finalizada'),
+            type: DataTypes.ENUM('pendiente', 'en curso', 'finalizada', 'cancelada'),
             allowNull: false,
             defaultValue: 'pendiente',
             isIn: {

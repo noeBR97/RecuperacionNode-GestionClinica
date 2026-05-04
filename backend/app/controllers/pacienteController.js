@@ -16,7 +16,7 @@ export const crearPaciente = async (req, res) => {
         const paciente = await Paciente.create(req.body)
         res.status(201).json({msg: 'Paciente registrado correctamente', paciente})
     } catch(error) {
-        res.status(500).son({msg: 'Error al crear paciente'})
+        res.status(500).json({msg: 'Error al crear paciente'});
     }
 }
 
