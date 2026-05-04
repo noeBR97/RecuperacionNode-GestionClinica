@@ -1,10 +1,11 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
+import express from 'express'
+import cors from 'cors'
+import dotenv from 'dotenv'
+import mongoose from 'mongoose'
+import { ApolloServer } from '@apollo/server'
+import { expressMiddleware } from '@as-integrations/express5'
 import { sequelize } from './config/db.js'
-import mongoose from "mongoose";
-import { conectarMongo } from './config/mongo.js';
-import Usuario from './models/Usuario.js';
+import { conectarMongo } from './config/mongo.js'
 import authRoutes from './routes/authRoutes.js'
 import usuarioRoutes from './routes/usuarioRoutes.js'
 import pacienteRoutes from './routes/pacienteRoutes.js'
@@ -13,6 +14,8 @@ import historialRoutes from './routes/historialRoutes.js'
 import adminRoutes from './routes/adminRoutes.js'
 import medicoRoutes from './routes/medicoRoutes.js'
 import recepcionistaRoutes from './routes/recepcionistaRoutes.js'
+import typeDefs from './graphql/typeDefs/typeDefs.js'
+import resolvers from './graphql/resolvers/resolvers.js'
 
 dotenv.config()
 mongoose.set('strictQuery', false);
@@ -32,15 +35,32 @@ class Server {
             pacientes: '/api/pacientes',
             admin: '/api/admin',
             medico: '/api/medico',
-            recepcionista: '/api/recepcionista'
+            recepcionista: '/api/recepcionista',
+            graphql: '/graphql'
         }
 
-        this.middlewares();
+        this.middlewares()
+        this.routes()
 
-        this.conectarDbs()
-
-        this.routes();
-        
+        this.serverGraphQL = new ApolloServer({
+            typeDefs,
+            resolvers,
+            plugins: [
+                {
+                    async requestDidStart() {
+                        return {
+                            async willSendResponse({ response, errors }) {
+                                if (errors && response.body.kind === 'single') {
+                                    response.body.singleResult.errors = errors.map((error) => ({
+                                        message: error.message
+                                    }))
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        })
     }
 
     async conectarDbs() {
@@ -78,9 +98,28 @@ class Server {
         this.app.use(this.paths.recepcionista, recepcionistaRoutes)
     }
 
+    applyGraphQLMiddleware() {
+        this.app.use(
+            this.paths.graphql,
+            express.json(),
+            expressMiddleware(this.serverGraphQL, {
+                context: async ({ req, res }) => ({ req, res })
+            })
+        )
+    }
+
+    async start() {
+        await this.conectarDbs()
+        await this.serverGraphQL.start()
+        console.log('Iniciando servidor Apollo Server GraphQL...')
+        this.applyGraphQLMiddleware()
+        this.listen()
+    }
+
     listen() {
         this.app.listen(this.port, () => {
             console.log(`🟢 Servidor API escuchando en: ${this.port}`);
+            console.log(`🟢 Servidor GraphQL escuchando en: http://localhost:${this.port}${this.paths.graphql}`)
         })
     }
 }
