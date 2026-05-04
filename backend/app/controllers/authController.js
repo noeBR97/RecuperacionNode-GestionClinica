@@ -2,7 +2,7 @@ import {response,request} from 'express';
 import Usuario from '../models/Usuario.js';
 import { generarJWT } from '../helpers/generate_jwt.js'
 
-export const registrar = (req = request, res = response) => {
+export const registrar = async (req = request, res = response) => {
     try {
         Usuario.create(req.body)
             .then(usuario => {
