@@ -50,8 +50,18 @@ export const buscarEntrada = async (req, res) => {
 }
 
 export const crearEntrada = async (req, res) => {
+    const {pacienteID, diagnostico, tratamiento, observaciones} = req.body
+
     try {
-        const nuevaEntrada = new Historial(req.body)
+        const nuevaEntrada = new Historial({
+            pacienteID,
+            diagnostico,
+            tratamiento,
+            observaciones,
+            medicoID: req.idToken,
+            fecha: new Date()
+        })
+
         await nuevaEntrada.save()
 
         res.status(201).json({msg: 'Entrada guardada correctamente', nuevaEntrada})
