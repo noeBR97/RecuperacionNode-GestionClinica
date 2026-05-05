@@ -1,0 +1,92 @@
+[{
+  "_id": {
+    "$oid": "69f3080be712f7c536bb1219"
+  },
+  "pacienteID": 2,
+  "medicoID": 4,
+  "diagnostico": "Bronquitis aguda con mejoría leve. Se mantiene observación.",
+  "tratamiento": "Amoxicilina 500mg y reposo absoluto 48h adicionales.",
+  "observaciones": "Se solicita analítica de sangre completa y radiografía de tórax",
+  "pruebasRealizadas": [
+    "Control de saturación de oxígeno"
+  ],
+  "fecha": {
+    "$date": "2026-04-30T07:43:07.539Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f30816e712f7c536bb121a"
+  },
+  "pacienteID": 2,
+  "medicoID": 4,
+  "diagnostico": "Bronquitis aguda confirmada por radiografía.",
+  "tratamiento": "Amoxicilina 500mg cada 8 horas durante 7 días y jarabe para la tos.",
+  "observaciones": "El paciente muestra mejoría en la auscultación, pero requiere antibiótico.",
+  "pruebasRealizadas": [],
+  "fecha": {
+    "$date": "2026-04-30T07:43:18.812Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f3081fe712f7c536bb121b"
+  },
+  "pacienteID": 2,
+  "medicoID": 4,
+  "diagnostico": "Recuperación total de proceso bronquial.",
+  "tratamiento": "Finalizar tratamiento antibiótico. No requiere medicación adicional.",
+  "observaciones": "Paciente asintomático. Se le da el alta médica.",
+  "pruebasRealizadas": [],
+  "fecha": {
+    "$date": "2026-04-30T07:43:27.667Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f859792b813e58975d5d44"
+  },
+  "pacienteID": 2,
+  "medicoID": 4,
+  "fecha": {
+    "$date": "2026-05-04T08:31:53.659Z"
+  },
+  "diagnostico": "Faringitis aguda",
+  "tratamiento": "Ibuprofeno 600mg cada 8 horas durante 5 días y mucha hidratación.",
+  "observaciones": "El paciente presenta inflamación en las amígdalas y fiebre leve (37.5°C). Se recomienda reposo vocal.",
+  "pruebasRealizadas": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f9a754303e1a0832368184"
+  },
+  "pacienteID": 2,
+  "medicoID": 4,
+  "fecha": {
+    "$date": "2026-05-05T08:16:20.599Z"
+  },
+  "diagnostico": "diagnóstico de prueba",
+  "tratamiento": "tratamiento de prueba",
+  "observaciones": "akjdsnakjbvjkasv ",
+  "pruebasRealizadas": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69f9b20145effb989e94c9b0"
+  },
+  "pacienteID": 2,
+  "medicoID": 7,
+  "fecha": {
+    "$date": "2026-05-05T09:01:53.027Z"
+  },
+  "diagnostico": "xbzsdfbsz",
+  "tratamiento": "szfdbzsdfb",
+  "observaciones": "afvazsfbv",
+  "pruebasRealizadas": [],
+  "__v": 0
+}]

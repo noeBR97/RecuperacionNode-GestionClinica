@@ -1,0 +1,16 @@
+usuarios creados:
+
+rol admin:
+email: admin@admin.com
+contraseña: admin123
+
+rol medico:
+email: medico@app.com
+contraseña: medico123
+
+email: medico2@app.com
+contraseña: medico123
+
+rol recepcionista:
+email: recepcionista@app.com
+contraseña: recepcionista123

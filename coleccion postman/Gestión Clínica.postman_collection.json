@@ -1,0 +1,1161 @@
+{
+  "info": {
+    "_postman_id": "c9b88724-98e2-4d5c-b87e-7b143208be6c",
+    "name": "Gestión Clínica",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48599476"
+  },
+  "item": [
+    {
+      "name": "registro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Chema\",\r\n    \"apellido1\": \"Ruiz\",\r\n    \"email\": \"che@clinica.com\",\r\n    \"clave\": \"medico123\",\r\n    \"rol\": \"medico\",\r\n    \"tfno\": \"123456789\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"noe@clinica.com\",\r\n    \"clave\": \"admin123\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtener usuarios",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NDY3OTgsImV4cCI6MTc3NzQ2MTE5OH0.rKYH0WiVIUcCARgAScu-7IOcmbWCHL1FNwY3KD-sZ8A",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"noe@clinica.com\",\r\n    \"clave\": \"admin123\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/usuarios",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "usuarios"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "buscar usuario",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NDY3OTgsImV4cCI6MTc3NzQ2MTE5OH0.rKYH0WiVIUcCARgAScu-7IOcmbWCHL1FNwY3KD-sZ8A",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"noe@clinica.com\",\r\n    \"clave\": \"admin123\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/usuarios/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "usuarios",
+            "2"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "2",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar usuario",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NDY3OTgsImV4cCI6MTc3NzQ2MTE5OH0.rKYH0WiVIUcCARgAScu-7IOcmbWCHL1FNwY3KD-sZ8A",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Chema\",\r\n    \"apellido1\": \"Ruiz\",\r\n    \"apellido2\": \"León\",\r\n    \"clave\": \"medico1234\",\r\n    \"rol\": \"medico\",\r\n    \"tfno\": \"123456789\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/usuarios/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "usuarios",
+            "3"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "2",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "eliminar usuario",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NDc1NDMsImV4cCI6MTc3NzQ2MTk0M30.ytpPfG-AhZ4UxdYpksiQ07byFk1NxxBICDp39EVNtZA",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Chema\",\r\n    \"apellido1\": \"Ruiz\",\r\n    \"apellido2\": \"León\",\r\n    \"clave\": \"medico1234\",\r\n    \"rol\": \"medico\",\r\n    \"tfno\": \"123456789\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/usuarios/3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "usuarios",
+            "3"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "2",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear paciente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NTE5OTQsImV4cCI6MTc3NzQ2NjM5NH0.iXiwO1HRmSboL-t6FS18xU1qx1Bt8zZWn9bGlkbDo9Q",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"dni\": \"12345678Z\",\r\n    \"nombre\": \"Javier\",\r\n    \"apellido1\": \"García\",\r\n    \"apellido2\": \"Rodríguez\",\r\n    \"telefono\": \"600123456\",\r\n    \"fecha_nacimiento\": \"1985-10-25\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/pacientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "pacientes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "buscar paciente",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NTE5OTQsImV4cCI6MTc3NzQ2NjM5NH0.iXiwO1HRmSboL-t6FS18xU1qx1Bt8zZWn9bGlkbDo9Q",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"dni\": \"12345678Z\",\r\n    \"nombre\": \"Javier\",\r\n    \"apellido1\": \"García\",\r\n    \"apellido2\": \"Rodríguez\",\r\n    \"telefono\": \"600123456\",\r\n    \"fecha_nacimiento\": \"1985-10-25\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/pacientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "pacientes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtener pacientes",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NTE5OTQsImV4cCI6MTc3NzQ2NjM5NH0.iXiwO1HRmSboL-t6FS18xU1qx1Bt8zZWn9bGlkbDo9Q",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"dni\": \"12345678Z\",\r\n    \"nombre\": \"Javier\",\r\n    \"apellido1\": \"García\",\r\n    \"apellido2\": \"Rodríguez\",\r\n    \"telefono\": \"600123456\",\r\n    \"fecha_nacimiento\": \"1985-10-25\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/pacientes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "pacientes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar paciente",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NTE5OTQsImV4cCI6MTc3NzQ2NjM5NH0.iXiwO1HRmSboL-t6FS18xU1qx1Bt8zZWn9bGlkbDo9Q",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"dni\": \"12345678Z\",\r\n    \"nombre\": \"Javier\",\r\n    \"apellido1\": \"García\",\r\n    \"apellido2\": \"Actualizado\",\r\n    \"telefono\": \"600123456\",\r\n    \"fecha_nacimiento\": \"1985-10-25\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/pacientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "pacientes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "eliminar paciente",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc0NTE5OTQsImV4cCI6MTc3NzQ2NjM5NH0.iXiwO1HRmSboL-t6FS18xU1qx1Bt8zZWn9bGlkbDo9Q",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"dni\": \"12345678Z\",\r\n    \"nombre\": \"Javier\",\r\n    \"apellido1\": \"García\",\r\n    \"apellido2\": \"Actualizado\",\r\n    \"telefono\": \"600123456\",\r\n    \"fecha_nacimiento\": \"1985-10-25\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/pacientes/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "pacientes",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear cita",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fecha\": \"2026-05-10T09:00:00.000Z\",\r\n    \"motivo\": \"Revisión anual de salud y analítica general\",\r\n    \"pacienteID\": 2,\r\n    \"medicoID\": 4\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/citas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "citas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtener citas",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"dni\": \"12345678Z\",\r\n    \"nombre\": \"Javier\",\r\n    \"apellido1\": \"García\",\r\n    \"apellido2\": \"Rodríguez\",\r\n    \"telefono\": \"600123456\",\r\n    \"fecha_nacimiento\": \"1985-10-25\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/citas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "citas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "buscar cita",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"dni\": \"12345678Z\",\r\n    \"nombre\": \"Javier\",\r\n    \"apellido1\": \"García\",\r\n    \"apellido2\": \"Rodríguez\",\r\n    \"telefono\": \"600123456\",\r\n    \"fecha_nacimiento\": \"1985-10-25\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/citas/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "citas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar cita",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"estado\": \"en curso\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/citas/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "citas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "eliminar cita",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"estado\": \"en curso\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/citas/1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "citas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear entrada historial",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2,\r\n    \"medicoID\": 4,\r\n    \"diagnostico\": \"Recuperación total de proceso bronquial.\",\r\n    \"tratamiento\": \"Finalizar tratamiento antibiótico. No requiere medicación adicional.\",\r\n    \"observaciones\": \"Paciente asintomático. Se le da el alta médica.\",\r\n    \"pruebasRealizadas\": []\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/historial",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "historial"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtener todos los historiales",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2, \r\n    \"medicoID\": 4,\r\n    \"diagnostico\": \"El paciente presenta fiebre alta y malestar general.\",\r\n    \"tratamiento\": \"Reposo y mucha hidratación.\",\r\n    \"observaciones\": \"Se recomienda seguimiento en 48 horas.\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/historial",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "historial"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "buscar historial completo",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2, \r\n    \"medicoID\": 4,\r\n    \"diagnostico\": \"El paciente presenta fiebre alta y malestar general.\",\r\n    \"tratamiento\": \"Reposo y mucha hidratación.\",\r\n    \"observaciones\": \"Se recomienda seguimiento en 48 horas.\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/historial/paciente/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "historial",
+            "paciente",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "buscar entrada historial",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2, \r\n    \"medicoID\": 4,\r\n    \"diagnostico\": \"El paciente presenta fiebre alta y malestar general.\",\r\n    \"tratamiento\": \"Reposo y mucha hidratación.\",\r\n    \"observaciones\": \"Se recomienda seguimiento en 48 horas.\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/historial/entrada/69f3080be712f7c536bb1219",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "historial",
+            "entrada",
+            "69f3080be712f7c536bb1219"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "eliminar entrada historial",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2, \r\n    \"medicoID\": 4,\r\n    \"diagnostico\": \"El paciente presenta fiebre alta y malestar general.\",\r\n    \"tratamiento\": \"Reposo y mucha hidratación.\",\r\n    \"observaciones\": \"Se recomienda seguimiento en 48 horas.\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/historial/entrada/69f305ab8d30ced3e5e96dd1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "historial",
+            "entrada",
+            "69f305ab8d30ced3e5e96dd1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "eliminar historial de paciente",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2, \r\n    \"medicoID\": 4,\r\n    \"diagnostico\": \"El paciente presenta fiebre alta y malestar general.\",\r\n    \"tratamiento\": \"Reposo y mucha hidratación.\",\r\n    \"observaciones\": \"Se recomienda seguimiento en 48 horas.\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/historial/paciente/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "historial",
+            "paciente",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "eliminar todos los historiales",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2, \r\n    \"medicoID\": 4,\r\n    \"diagnostico\": \"El paciente presenta fiebre alta y malestar general.\",\r\n    \"tratamiento\": \"Reposo y mucha hidratación.\",\r\n    \"observaciones\": \"Se recomienda seguimiento en 48 horas.\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/historial/danger/reset-all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "historial",
+            "danger",
+            "reset-all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "actualizar entrada",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"diagnostico\": \"Bronquitis aguda con mejoría leve. Se mantiene observación.\",\r\n    \"tratamiento\": \"Amoxicilina 500mg y reposo absoluto 48h adicionales.\",\r\n    \"pruebasRealizadas\": [\"Control de saturación de oxígeno\"]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/historial/entrada/69f3080be712f7c536bb1219",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "historial",
+            "entrada",
+            "69f3080be712f7c536bb1219"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "generar pacientes aleatorios",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"cantidad\": 10\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/admin/generar-aleatorios",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "admin",
+            "generar-aleatorios"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "consultar métricas",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sIjoiYWRtaW4iLCJpYXQiOjE3Nzc1MzM4NTAsImV4cCI6MTc3NzU0ODI1MH0.jEmA3fmP_4hQrGvGLRo_GSmHxvEjbGvHUrm_aeiGmAU",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"cantidad\": 10\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/admin/metricas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "admin",
+            "metricas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtener mis citas como médico",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoibWVkaWNvIiwiaWF0IjoxNzc3ODc5NDI0LCJleHAiOjE3Nzc4OTM4MjR9.rlsALftaUDY6TyrpSto8QevUh5NucHftcWUG3nQa7vo",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"cantidad\": 10\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/medico/mis-citas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "medico",
+            "mis-citas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cambiar estado cita como médico",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoibWVkaWNvIiwiaWF0IjoxNzc3ODc5NDI0LCJleHAiOjE3Nzc4OTM4MjR9.rlsALftaUDY6TyrpSto8QevUh5NucHftcWUG3nQa7vo",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"estado\": \"finalizada\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/medico/cita/2/estado",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "medico",
+            "cita",
+            "2",
+            "estado"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear entrada como médico",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoibWVkaWNvIiwiaWF0IjoxNzc3ODgzNDkzLCJleHAiOjE3Nzc4OTc4OTN9.krAbG3h1HSNIdGO2T_nIFxGpcm2UKBfWoL86Mf_LzsY",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2,\r\n    \"diagnostico\": \"Faringitis aguda\",\r\n    \"tratamiento\": \"Ibuprofeno 600mg cada 8 horas durante 5 días y mucha hidratación.\",\r\n    \"observaciones\": \"El paciente presenta inflamación en las amígdalas y fiebre leve (37.5°C). Se recomienda reposo vocal.\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/medico/historial",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "medico",
+            "historial"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "buscar historial como médico",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoibWVkaWNvIiwiaWF0IjoxNzc3ODgzNDkzLCJleHAiOjE3Nzc4OTc4OTN9.krAbG3h1HSNIdGO2T_nIFxGpcm2UKBfWoL86Mf_LzsY",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"pacienteID\": 2,\r\n    \"diagnostico\": \"Faringitis aguda\",\r\n    \"tratamiento\": \"Ibuprofeno 600mg cada 8 horas durante 5 días y mucha hidratación.\",\r\n    \"observaciones\": \"El paciente presenta inflamación en las amígdalas y fiebre leve (37.5°C). Se recomienda reposo vocal.\"\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/medico/historial/2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "medico",
+            "historial",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear paciente como recepcionista",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sIjoicmVjZXBjaW9uaXN0YSIsImlhdCI6MTc3Nzg4NTExMSwiZXhwIjoxNzc3ODk5NTExfQ.RZQC_gcMlN6QvQeWDJBv-vbpK5latMheSGzMNqHtcmk",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nombre\": \"Carlos\",\r\n    \"apellido1\": \"García\",\r\n    \"apellido2\": \"Pérez\",\r\n    \"dni\": \"12345678X\",\r\n    \"telefono\": \"600123456\",\r\n    \"fecha_nacimiento\": \"1990-05-15\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/recepcionista/paciente",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "recepcionista",
+            "paciente"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear cita como recepcionista",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sIjoicmVjZXBjaW9uaXN0YSIsImlhdCI6MTc3Nzg4NTExMSwiZXhwIjoxNzc3ODk5NTExfQ.RZQC_gcMlN6QvQeWDJBv-vbpK5latMheSGzMNqHtcmk",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fecha\": \"2026-06-20T10:30:00.000Z\",\r\n    \"motivo\": \"Control rutinario\",\r\n    \"pacienteID\": 2,\r\n    \"medicoID\": 4\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/recepcionista/cita",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "recepcionista",
+            "cita"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "consultar agenda como recepcionista",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "access-token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sIjoicmVjZXBjaW9uaXN0YSIsImlhdCI6MTc3Nzg4NTExMSwiZXhwIjoxNzc3ODk5NTExfQ.RZQC_gcMlN6QvQeWDJBv-vbpK5latMheSGzMNqHtcmk",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"fecha\": \"2026-06-20T10:30:00.000Z\",\r\n    \"motivo\": \"Control rutinario\",\r\n    \"pacienteID\": 2,\r\n    \"medicoID\": 4\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/recepcionista/agenda",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "recepcionista",
+            "agenda"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "cancelar cita como recepcionista",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
