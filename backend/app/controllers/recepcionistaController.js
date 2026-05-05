@@ -1,4 +1,29 @@
 import Cita from "../models/Cita.js";
+import Paciente from "../models/Paciente.js";
+import Usuario from "../models/Usuario.js";
+
+export const getPacientesRecepcion = async (req, res) => {
+    try {
+        const pacientes = await Paciente.findAll()
+
+        res.json(pacientes)
+    } catch(error) {
+        res.status(500).json({msg: 'Error al obtener pacientes'})
+    }
+}
+
+export const getMedicosRecepcion = async (req, res) => {
+    try {
+        const medicos = await Usuario.findAll({
+            where: {rol: 'medico'},
+            attributes: { exclude: ['clave'] }
+        })
+
+        res.json(medicos)
+    } catch(error) {
+        res.status(500).json({msg: 'Error al obtener médicos'})
+    }
+}
 
 export const cancelarCita = async (req, res) => {
     const {id} = req.params
