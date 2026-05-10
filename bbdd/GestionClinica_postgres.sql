@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict GYfJlNQZ4a0YxOmwb786FWrerxywQ5KGeQWOfV7uWA0tlgrNizbZJyVnjv84vWS
+\restrict Frw8IEfokVq9XR5snmL0xWmoOiAJPqA9T2qCcgUcJd8dClqKUjNgxZ4zTsKi1nO
 
 -- Dumped from database version 18.1
 -- Dumped by pg_dump version 18.1
@@ -199,9 +199,10 @@ ALTER TABLE ONLY public.usuarios ALTER COLUMN id SET DEFAULT nextval('public.usu
 --
 
 COPY public.citas (id, fecha, motivo, estado, "createdAt", "updatedAt", "pacienteID", "medicoID") FROM stdin;
-6	2026-05-30 10:47:00+02	resfriado común	pendiente	2026-05-05 10:47:48.359+02	2026-05-05 10:47:48.359+02	2	7
 7	2026-05-09 12:30:00+02	Dolor de espalda	pendiente	2026-05-05 10:49:31.811+02	2026-05-05 10:49:31.811+02	40	9
-8	2026-05-20 09:15:00+02	Migrañas	pendiente	2026-05-05 11:00:02.618+02	2026-05-05 11:00:02.618+02	33	7
+6	2026-05-30 10:47:00+02	resfriado común	cancelada	2026-05-05 10:47:48.359+02	2026-05-10 18:57:47.534+02	2	7
+8	2026-05-20 09:15:00+02	Migrañas	cancelada	2026-05-05 11:00:02.618+02	2026-05-10 18:59:10.346+02	33	7
+9	2026-05-21 11:02:00+02	alergia	pendiente	2026-05-10 19:00:09.465+02	2026-05-10 19:00:09.465+02	37	7
 \.
 
 
@@ -245,10 +246,10 @@ COPY public.pacientes (id, dni, nombre, apellido1, apellido2, telefono, fecha_na
 --
 
 COPY public.usuarios (id, nombre, apellido1, apellido2, email, clave, rol, tfno, "createdAt", "updatedAt") FROM stdin;
-6	Administrador	de Prueba	\N	admin@admin.com	$2b$10$tHm6beM5iECaOwkJC8Pu4eiu2N1SRCFeL3nfeX331unko0EqfqIJa	admin	123456789	2026-05-05 10:44:47.542+02	2026-05-05 10:44:47.542+02
 7	Médico	de Prueba	\N	medico@app.com	$2b$10$FO9sx0t1BZNZ3cM6ll1Uauo0KfrK4ntprwI5rchvIgMOTcvoTnu42	medico	123456789	2026-05-05 10:46:11.42+02	2026-05-05 10:46:11.42+02
 8	Recepcionista	de Prueba	\N	recepcionista@app.com	$2b$10$I..umKm0ik/qHYVfT0esW.T7nfuhGxtfczW8c.bEvhhV2O4qJ4chq	recepcionista	123456789	2026-05-05 10:46:49.25+02	2026-05-05 10:46:49.25+02
 9	Médico	de Prueba 2	\N	medico2@app.com	$2b$10$X0kqpzRhCVQJvneHIaE78.wzowNG781B2SZ648cekkKs82bw0ib9m	medico	123456789	2026-05-05 10:48:57.769+02	2026-05-05 10:48:57.769+02
+10	Admin	de Prueba	\N	admin@admin.com	$2b$10$mVNwjjKfmy39P735CymPXeDIQhrmFiE0n7QkVp8K1vBIgV5ERWB3O	admin	123456789	2026-05-10 18:52:04.753+02	2026-05-10 18:52:04.753+02
 \.
 
 
@@ -256,7 +257,7 @@ COPY public.usuarios (id, nombre, apellido1, apellido2, email, clave, rol, tfno,
 -- Name: citas_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.citas_id_seq', 8, true);
+SELECT pg_catalog.setval('public.citas_id_seq', 9, true);
 
 
 --
@@ -270,7 +271,7 @@ SELECT pg_catalog.setval('public.pacientes_id_seq', 58, true);
 -- Name: usuarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuarios_id_seq', 9, true);
+SELECT pg_catalog.setval('public.usuarios_id_seq', 10, true);
 
 
 --
@@ -5226,11 +5227,75 @@ ALTER TABLE ONLY public.pacientes
 
 
 --
+-- Name: pacientes pacientes_dni_key655; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pacientes
+    ADD CONSTRAINT pacientes_dni_key655 UNIQUE (dni);
+
+
+--
+-- Name: pacientes pacientes_dni_key656; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pacientes
+    ADD CONSTRAINT pacientes_dni_key656 UNIQUE (dni);
+
+
+--
+-- Name: pacientes pacientes_dni_key657; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pacientes
+    ADD CONSTRAINT pacientes_dni_key657 UNIQUE (dni);
+
+
+--
+-- Name: pacientes pacientes_dni_key658; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pacientes
+    ADD CONSTRAINT pacientes_dni_key658 UNIQUE (dni);
+
+
+--
+-- Name: pacientes pacientes_dni_key659; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pacientes
+    ADD CONSTRAINT pacientes_dni_key659 UNIQUE (dni);
+
+
+--
 -- Name: pacientes pacientes_dni_key66; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.pacientes
     ADD CONSTRAINT pacientes_dni_key66 UNIQUE (dni);
+
+
+--
+-- Name: pacientes pacientes_dni_key660; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pacientes
+    ADD CONSTRAINT pacientes_dni_key660 UNIQUE (dni);
+
+
+--
+-- Name: pacientes pacientes_dni_key661; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pacientes
+    ADD CONSTRAINT pacientes_dni_key661 UNIQUE (dni);
+
+
+--
+-- Name: pacientes pacientes_dni_key662; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pacientes
+    ADD CONSTRAINT pacientes_dni_key662 UNIQUE (dni);
 
 
 --
@@ -5559,6 +5624,14 @@ ALTER TABLE ONLY public.usuarios
 
 ALTER TABLE ONLY public.usuarios
     ADD CONSTRAINT usuarios_email_key100 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key1000; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key1000 UNIQUE (email);
 
 
 --
@@ -13458,6 +13531,78 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
+-- Name: usuarios usuarios_email_key991; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key991 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key992; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key992 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key993; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key993 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key994; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key994 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key995; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key995 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key996; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key996 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key997; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key997 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key998; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key998 UNIQUE (email);
+
+
+--
+-- Name: usuarios usuarios_email_key999; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuarios
+    ADD CONSTRAINT usuarios_email_key999 UNIQUE (email);
+
+
+--
 -- Name: usuarios usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -13485,5 +13630,5 @@ ALTER TABLE ONLY public.citas
 -- PostgreSQL database dump complete
 --
 
-\unrestrict GYfJlNQZ4a0YxOmwb786FWrerxywQ5KGeQWOfV7uWA0tlgrNizbZJyVnjv84vWS
+\unrestrict Frw8IEfokVq9XR5snmL0xWmoOiAJPqA9T2qCcgUcJd8dClqKUjNgxZ4zTsKi1nO
 
