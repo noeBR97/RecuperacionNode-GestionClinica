@@ -264,13 +264,6 @@ Se utiliza para:
 
 * Actualizar número de citas pendientes.
 * Actualizar agenda en tiempo real.
-* Notificaciones visuales.
-
-Eventos principales:
-
-* cita_creada
-* cita_cancelada
-* cita_actualizada
 
 ## **📊 Consultas GraphQL**
 
