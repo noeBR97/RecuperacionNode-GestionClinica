@@ -16,6 +16,8 @@ import medicoRoutes from './routes/medicoRoutes.js'
 import recepcionistaRoutes from './routes/recepcionistaRoutes.js'
 import typeDefs from './graphql/typeDefs/typeDefs.js'
 import resolvers from './graphql/resolvers/resolvers.js'
+import { createServer } from 'http';
+import { Server as SocketServer } from 'socket.io';
 
 dotenv.config()
 mongoose.set('strictQuery', false);
@@ -26,6 +28,17 @@ class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT || 3000
+
+        //servidor para sockets
+        this.server = createServer(this.app)
+
+        //configuración de socket.io
+        this.io = new SocketServer(this.server, {
+            cors: {
+                origin: 'http://localhost:5173',
+                methods: ["GET", "POST"]
+            }
+        })
 
         this.paths = {
             auth: '/api/auth',
@@ -41,6 +54,7 @@ class Server {
 
         this.middlewares()
         this.routes()
+        this.sockets()
 
         this.serverGraphQL = new ApolloServer({
             typeDefs,
@@ -85,6 +99,17 @@ class Server {
     middlewares() {
         this.app.use(cors());
         this.app.use(express.json());
+        this.app.set('socketio', this.io)
+    }
+
+    sockets() {
+        this.io.on('connection', socket => {
+            console.log(`Cliente socket conectado: ${socket.id}`)
+
+            socket.on('disconnect', () => {
+                console.log(`Cliente socket desconectado: ${socket.id}`)
+            })
+        })
     }
 
     routes(){
@@ -117,7 +142,7 @@ class Server {
     }
 
     listen() {
-        this.app.listen(this.port, () => {
+        this.server.listen(this.port, () => {
             console.log(`🟢 Servidor API escuchando en: ${this.port}`);
             console.log(`🟢 Servidor GraphQL escuchando en: http://localhost:${this.port}${this.paths.graphql}`)
         })
