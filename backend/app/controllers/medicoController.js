@@ -37,6 +37,14 @@ export const actualizarEstadoCita = async (req, res) => {
         cita.estado = estado
         await cita.save()
 
+        const io = req.app.get('socketio')
+
+        io.emit('cambio-en-agenda', {
+            msg: `La cita ${id} ha cambiado su estado a ${estado}`,
+            citaID: id,
+            nuevoEstado: estado
+        })
+
         res.json({msg: 'Cita actualizada correctamente', cita})
     } catch(error) {
         res.status(500).json({msg: 'Error al actualizar el estado'})

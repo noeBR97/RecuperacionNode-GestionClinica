@@ -37,6 +37,14 @@ export const cancelarCita = async (req, res) => {
 
         await cita.update({estado: 'cancelada'})
 
+        const io = req.app.get('socketio')
+        io.emit('cambio-en-agenda', {
+            msg: `La cita ${id} ha cambiado su estado a cancelada`,
+            citaID: id,
+            nuevoEstado: 'cancelada',
+            tipo: 'cancelada'
+        })
+
         res.json({msg: 'Cita cancelada correctamente', cita})
     } catch(error) {
         // ESTO TE DIRÁ EL ERROR REAL EN TU TERMINAL

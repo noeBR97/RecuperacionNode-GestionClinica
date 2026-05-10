@@ -26,6 +26,13 @@ export const crearCita = async (req, res) => {
             estado: 'pendiente'
         })
 
+        const io = req.app.get('socketio')
+        io.emit('cambio-en-agenda', {
+            msg: `Nueva cita creada para el ${fecha}`,
+            citaID: cita.id,
+            tipo: 'creada'
+        })
+
         res.status(201).json({msg: 'Cita creada correctamente'})
     } catch(error) {
         res.status(500).json({msg: 'Error al crear la cita'})
@@ -79,6 +86,17 @@ export const actualizarCita = async (req, res) => {
         }
 
         await cita.update(req.body)
+
+        const io = req.app.get('socketio')
+        io.emit('cambio-en-agenda', {
+            msg: req.body.estado
+                ? `La cita ${id} ha cambiado su estado a ${req.body.estado}`
+                : `La cita ${id} ha sido actualizada`,
+            citaID: id,
+            nuevoEstado: req.body.estado,
+            tipo: 'actualizada'
+        })
+
         res.json({msg: 'Cita actualizada correctamente.', cita})
     } catch(error) {
         res.status(500).json({msg: 'Error al actualizar'})
@@ -96,6 +114,14 @@ export const eliminarCita = async (req, res) => {
         }
 
         await cita.destroy()
+
+        const io = req.app.get('socketio')
+        io.emit('cambio-en-agenda', {
+            msg: `La cita ${id} ha sido eliminada`,
+            citaID: id,
+            tipo: 'eliminada'
+        })
+
         res.json({msg: 'Cita eliminada correctamente.', cita})
     } catch(error) {
         res.status(500).json({msg: 'Error en el servidor'})
