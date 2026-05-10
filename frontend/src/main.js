@@ -1,4 +1,5 @@
 import './style.css';
+import { connectSocket, disconnectSocket, onAgendaUpdate } from './api/socket.js';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 const app = document.querySelector('#app');
@@ -93,6 +94,7 @@ const login = async (credentials) => {
   state.usuario = data.usuario;
   localStorage.setItem('clinica_token', data.token);
   localStorage.setItem('clinica_usuario', JSON.stringify(data.usuario));
+  connectSocket();
 
   if (data.usuario.rol === 'admin') {
     state.view = 'resumen';
@@ -127,6 +129,7 @@ const logout = () => {
   state.historiales = [];
   state.selectedPacienteId = null;
   state.status = { text: '', type: 'success' };
+  disconnectSocket();
   renderLogin();
 };
 
@@ -1530,12 +1533,22 @@ const render = () => {
   renderAdmin();
 };
 
+onAgendaUpdate(async (data) => {
+  if (!state.token || !state.usuario) return;
+
+  await loadCurrentRoleData();
+  setStatus(data.msg || 'Agenda actualizada.');
+});
+
 if (state.token && state.usuario?.rol === 'admin') {
+  connectSocket();
   loadAdminData();
 } else if (state.token && state.usuario?.rol === 'recepcionista') {
+  connectSocket();
   state.view = 'agenda';
   loadReceptionData();
 } else if (state.token && state.usuario?.rol === 'medico') {
+  connectSocket();
   state.view = 'mis-citas';
   loadDoctorData();
 } else {
