@@ -172,6 +172,10 @@ npm install
 
 ``createdb -U postgres GestionClinica ``
 
+### **4.1. Ejecutar seeders (usuarios)**
+
+``npx sequelize-cli db:seed:all``
+
 ### **5. Restaurar PostgreSQL**
 
 ``psql -U postgres -d GestionClinica -f bbdd/GestionClinica_postgres.sql ``
@@ -376,3 +380,4 @@ RecuperacionNode-GestionClinica/
 ## **📝 Notas Finales**
 
 Este proyecto integra múltiples tecnologías modernas para simular un sistema real de gestión clínica, con seguridad, tiempo real, consultas avanzadas y separación clara entre datos estructurados y no estructurados.
+
