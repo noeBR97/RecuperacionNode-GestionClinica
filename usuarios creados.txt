@@ -14,3 +14,5 @@ contraseña: medico123
 rol recepcionista:
 email: recepcionista@app.com
 contraseña: recepcionista123
+
+contraseña para usuarios del seeder: password123
